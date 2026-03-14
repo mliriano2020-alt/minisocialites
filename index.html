@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Socialites | Nonprofit for Children with Disabilities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mini Socialites creates joyful, inclusive social experiences for children with disabilities and their families." />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --max-width: 1100px;
+      --radius: 10px;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(249, 250, 251, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #3b82f6, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: #e5edff;
+      color: var(--primary-dark);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.4);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      scroll-margin-top: 80px;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-highlight {
+      color: var(--primary);
+    }
+
+    .hero-text {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-secondary {
+      padding: 0.8rem 1.4rem;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--primary-dark);
+      font-weight: 600;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #eef2ff;
+      border-color: var(--primary);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero-card-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-stat {
+      background: #eff6ff;
+      border-radius: 12px;
+      padding: 0.6rem 0.7rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--primary-dark);
+    }
+
+    /* Cards / grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .pill-blue {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .pill-green {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .pill-orange {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    /* Impact */
+    .impact-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .impact-stat {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+      min-width: 180px;
+    }
+
+    .impact-stat strong {
+      font-size: 1.6rem;
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--primary-dark);
+    }
+
+    .impact-stat span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Testimonial */
+    .testimonial {
+      background: #eef2ff;
+      border-radius: 18px;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid #e0e7ff;
+      font-size: 0.95rem;
+      color: #111827;
+    }
+
+    .testimonial-quote {
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    /* Events */
+    .event-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .event-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      box-shadow: var(--shadow);
+      font-size: 0.95rem;
+    }
+
+    .event-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .event-card h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .event-card button {
+      margin-top: 0.7rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .event-card button:hover {
+      background: #eef2ff;
+      border-color: var(--primary);
+    }
+
+    /* Donate */
+    .donate-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .donate-levels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .donate-level {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .donate-level strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--primary-dark);
+    }
+
+    .donorbox-placeholder {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 14px;
+      padding: 1.25rem 1.4rem;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow);
+    }
+
+    .donorbox-placeholder span {
+      display: block;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-top: 0.4rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.75rem;
+    }
+
+    form {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+      margin-bottom: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+    }
+
+    .contact-info {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .contact-info p {
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info strong {
+      color: var(--text);
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding: 1.5rem 1.25rem 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .grid-2,
+      .donate-layout,
+      .contact-grid,
+      .event-list {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .section-heading {
+        font-size: 1.6rem;
+      }
+
+      main {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-badge">MS</div>
+        Mini Socialites
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#events">Events</a>
+        <a href="#get-involved">Get Involved</a>
+        <a href="#donate">Donate</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#donate" class="nav-cta">Donate</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home">
+      <div class="hero">
+        <div>
+          <div class="hero-badge">
+            Inclusive joy for every child
+          </div>
+          <h1 class="hero-title">
+            Creating <span class="hero-highlight">joyful social experiences</span> for children with disabilities and their families.
+          </h1>
+          <p class="hero-text">
+            Mini Socialites hosts inclusive social outings where kids can be themselves and families feel seen, supported, and connected.
+          </p>
+          <div class="hero-actions">
+            <a href="#donate" class="btn-primary">Donate Now</a>
+            <a href="#get-involved" class="btn-secondary">Join Our Community</a>
+          </div>
+          <div class="hero-meta">
+            <span>✨ Safe, judgment‑free spaces</span>
+            <span>👨‍👩‍👧‍👦 Family‑centered events</span>
+            <span>🤝 Built with community partners</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-tag">Nonprofit Community</div>
+          <div class="hero-card-title">Every outing is a moment of belonging.</div>
+          <p class="hero-card-text">
+            From sensory‑friendly playdates to inclusive celebrations, our events are designed with accessibility, joy, and connection at the center.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>XX+</strong>
+              Families served
+            </div>
+            <div class="hero-stat">
+              <strong>XX</strong>
+              Events hosted
+            </div>
+            <div class="hero-stat">
+              <strong>XX</strong>
+              Volunteers engaged
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-heading">About Mini Socialites</h2>
+      <p class="section-subtitle">
+        We believe every child deserves spaces where they are welcomed, celebrated, and free to be themselves—without barriers or judgment.
+      </p>
+
+      <div class="grid-2">
+        <div>
+          <h3>Our Mission</h3>
+          <p>
+            Mini Socialites exists to create joyful, inclusive social experiences for children with disabilities and their families, fostering connection, confidence, and community.
+          </p>
+          <br />
+          <h3>Our Story</h3>
+          <p>
+            Mini Socialites began with a simple idea: families of children with disabilities shouldn’t feel alone or excluded from everyday social experiences. What started as a few small gatherings has grown into a community of families, volunteers, and partners who believe in the power of shared joy.
+          </p>
+        </div>
+        <div>
+          <h3>Who We Serve</h3>
+          <p>
+            We serve children with disabilities and their families, regardless of diagnosis, background, or income. Our events are designed to be:
+          </p>
+          <ul style="margin-top:0.5rem; padding-left:1.1rem; color:var(--muted); font-size:0.95rem;">
+            <li>Accessible and sensory‑aware</li>
+            <li>Judgment‑free and welcoming</li>
+            <li>Family‑centered and community‑driven</li>
+          </ul>
+          <br />
+          <h3>Our Values</h3>
+          <ul style="margin-top:0.5rem; padding-left:1.1rem; color:var(--muted); font-size:0.95rem;">
+            <li><strong>Inclusion:</strong> Every child and family belongs.</li>
+            <li><strong>Joy:</strong> Fun is essential, not optional.</li>
+            <li><strong>Community:</strong> We are stronger together.</li>
+            <li><strong>Respect:</strong> We honor each family’s unique story.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs">
+      <h2 class="section-heading">What We Do</h2>
+      <p class="section-subtitle">
+        Our programs are built around connection—between kids, caregivers, and the wider community.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill pill-blue">Social Outings</div>
+          <h3>Inclusive Events</h3>
+          <p>
+            We host regular social outings tailored to the needs of children with disabilities and their families—playdates, park meetups, museum visits, sensory‑friendly events, and more.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill pill-green">Family Support</div>
+          <h3>Connection for Caregivers</h3>
+          <p>
+            Our gatherings create space for caregivers to connect, share experiences, and build friendships with others who understand their journey.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill pill-orange">Community Building</div>
+          <h3>Partnerships & Inclusion</h3>
+          <p>
+            We collaborate with local businesses, schools, and organizations to create more inclusive spaces and expand opportunities for families.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact & Testimonial -->
+    <section>
+      <h2 class="section-heading">Our Impact</h2>
+      <p class="section-subtitle">
+        Behind every number is a child laughing, a caregiver exhaling, and a family feeling less alone.
+      </p>
+
+      <div class="impact-stats">
+        <div class="impact-stat">
+          <strong>XX+</strong>
+          <span>Families connected through Mini Socialites events.</span>
+        </div>
+        <div class="impact-stat">
+          <strong>XX</strong>
+          <span>Inclusive outings hosted in partnership with our community.</span>
+        </div>
+        <div class="impact-stat">
+          <strong>XX</strong>
+          <span>Volunteers helping create safe, joyful spaces.</span>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          “Mini Socialites gave my child a place to belong. For the first time, we showed up to an event and didn’t feel like we had to apologize or explain. We finally feel like we’re not alone.”
+        </div>
+        <div class="testimonial-name">— Parent Participant</div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+      <h2 class="section-heading">Events & Outings</h2>
+      <p class="section-subtitle">
+        Our events are designed with accessibility, joy, and connection in mind. Here’s a glimpse of what we offer.
+      </p>
+
+      <div class="event-list">
+        <div class="event-card">
+          <div class="event-meta">Monthly • Local Parks</div>
+          <h3>Sensory‑Friendly Playdates</h3>
+          <p>
+            Relaxed, low‑pressure play sessions where kids can explore at their own pace and caregivers can connect.
+          </p>
+          <button>Sample Event</button>
+        </div>
+        <div class="event-card">
+          <div class="event-meta">Seasonal • Community Venues</div>
+          <h3>Inclusive Holiday Celebrations</h3>
+          <p>
+            Thoughtfully planned celebrations that honor different needs while keeping the magic and fun.
+          </p>
+          <button>Sample Event</button>
+        </div>
+        <div class="event-card">
+          <div class="event-meta">Ongoing • Partner Locations</div>
+          <h3>Community Outings</h3>
+          <p>
+            Visits to museums, zoos, and local attractions with accommodations in mind.
+          </p>
+          <button>Sample Event</button>
+        </div>
+        <div class="event-card">
+          <div class="event-meta">Quarterly • Various Locations</div>
+          <h3>Family Meetups</h3>
+          <p>
+            Gatherings focused on connection, conversation, and building a supportive network.
+          </p>
+          <button>Sample Event</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section id="get-involved">
+      <h2 class="section-heading">Get Involved</h2>
+      <p class="section-subtitle">
+        Whether you’re a volunteer, partner, or sponsor, you play a vital role in creating inclusive joy.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill pill-green">Volunteer</div>
+          <h3>Support at Events</h3>
+          <p>
+            Help with setup, activities, and welcoming families at our outings. No special experience required—just a kind heart.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill pill-blue">Partner</div>
+          <h3>Community Partnerships</h3>
+          <p>
+            We collaborate with local businesses, schools, and organizations to host events and create more inclusive spaces.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill pill-orange">Sponsor</div>
+          <h3>Sponsor an Event</h3>
+          <p>
+            Sponsorships help cover venue costs, supplies, accessibility supports, and refreshments for families.
+          </p>
+        </div>
+      </div>
+
+      <br />
+      <a href="#contact" class="btn-primary">Reach Out About Getting Involved</a>
+    </section>
+
+    <!-- Donate -->
+    <section id="donate">
+      <h2 class="section-heading">Donate</h2>
+      <p class="section-subtitle">
+        Your gift helps us host more inclusive outings, support more families, and build a stronger community.
+      </p>
+
+      <div class="donate-layout">
+        <div>
+          <h3>Why Your Gift Matters</h3>
+          <p>
+            Donations allow us to keep events low‑ or no‑cost for families, provide sensory‑friendly materials, secure accessible venues, and grow our programs with intention.
+          </p>
+
+          <div class="donate-levels">
+            <div class="donate-level">
+              <strong>$25</strong>
+              Helps provide supplies for one child at an event.
+            </div>
+            <div class="donate-level">
+              <strong>$50</strong>
+              Supports snacks and materials for a family outing.
+            </div>
+            <div class="donate-level">
+              <strong>$100</strong>
+              Helps sponsor a small group event.
+            </div>
+            <div class="donate-level">
+              <strong>$250+</strong>
+              Supports a larger community gathering for multiple families.
+            </div>
+          </div>
+
+          <br />
+          <p style="font-size:0.9rem; color:var(--muted);">
+            You can make a one‑time gift or become a monthly supporter to sustain our work year‑round.
+          </p>
+        </div>
+        <div>
+          <div class="donorbox-placeholder">
+            <strong>Online Giving Form</strong>
+            <p style="margin-top:0.4rem;">
+              This is where your Donorbox (or other donation platform) form will go.
+            </p>
+            <span>
+              Once your Donorbox campaign is set up, copy the embed code they provide and paste it here in place of this box.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-heading">Contact</h2>
+      <p class="section-subtitle">
+        Have questions, want to get involved, or interested in partnering? We’d love to hear from you.
+      </p>
+
+      <div class="contact-grid">
+        <form>
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" />
+
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="How can we help?" />
+
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Write your message here..."></textarea>
+
+          <button type="button" class="btn-primary" style="margin-top:0.5rem; border:none;">
+            Send Message (placeholder)
+          </button>
+          <p style="font-size:0.8rem; color:var(--muted); margin-top:0.4rem;">
+            This is a visual form only. To make it functional, connect it to an email service or form handler.
+          </p>
+        </form>
+
+        <div class="contact-info">
+          <p><strong>Email:</strong> info@minisocialites.org (replace with your real email)</p>
+          <p><strong>Location:</strong> Your city / region (optional)</p>
+          <p><strong>Mailing Address:</strong> Add if you have one for donations or correspondence.</p>
+
+          <br />
+          <p><strong>Social Media</strong></p>
+          <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Other</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Mini Socialites. All rights reserved.
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+        if (targetId.length > 1) {
+          e.preventDefault();
+          const el = document.querySelector(targetId);
+          if (el) {
+            window.scrollTo({
+              top: el.offsetTop - 70,
+              behavior: "smooth"
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
