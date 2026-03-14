@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Socialites</title>
+
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #f9fafb;
+      --text: #111827;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: white;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .event-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .event-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="YOUR_LOGO_FILENAME_HERE" alt="Mini Socialites Logo" style="height:45px; width:auto;">
+    <span>Mini Socialites</span>
+  </div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 class="section-heading">Creating joyful social experiences for children with disabilities</h1>
+  <p class="section-subtitle">Where every child belongs, thrives, and shines.</p>
+</section>
+
+<section id="about">
+  <h2 class="section-heading" style="text-align:center;">About Us</h2>
+  <p class="section-subtitle" style="text-align:center;">Our mission is to create inclusive, joyful experiences for all children.</p>
+
+  <div class="grid-2">
+    <div>
+      <p>
+        Mini Socialites is dedicated to creating magical, inclusive social experiences for children with disabilities.
+        We believe every child deserves joy, connection, and community.
+      </p>
+    </div>
+
+    <div class="card" style="text-align:center; padding:1rem; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <img src="YOUR_FOUNDER_PHOTO_FILENAME_HERE" 
+           alt="Founder Meagan Sheehy" 
+           style="width:100%; border-radius:12px; margin-bottom:10px;">
+      <p style="font-size:0.9rem; color:#6b7280; font-weight:600;">
+        Founder: Meagan Sheehy
+      </p>
+    </div>
+  </div>
+</section>
+<section id="events">
+  <h2 class="section-heading" style="text-align:center;">Upcoming Events</h2>
+  <p class="section-subtitle" style="text-align:center;">Join us for inclusive, joyful celebrations all year long.</p>
+
+  <div class="event-list">
+
+    <!-- Holiday Events Card -->
+    <div class="event-card">
+      <h3>Holiday Events</h3>
+      <p>Our annual Christmas celebration brings families together for joy, music, and magical moments.</p>
+    </div>
+
+    <!-- Christmas Event Photo Card -->
+    <div class="event-card">
+      <a href="YOUR_CHRISTMAS_PHOTO_FILENAME_HERE" target="_blank">
+        <img src="YOUR_CHRISTMAS_PHOTO_FILENAME_HERE"
+             alt="Mini Socialites Christmas Event"
+             style="width:100%; border-radius:12px; margin-bottom:10px; box-shadow:0 8px 20px rgba(0,0,0,0.12);">
+      </a>
+      <p style="font-size:0.9rem; color:#6b7280; text-align:center; margin-top:8px;">
+        This Year's Christmas Event
+      </p>
+    </div>
+
+    <!-- Additional Event Example -->
+    <div class="event-card">
+      <h3>Spring Social</h3>
+      <p>A fun-filled outdoor gathering celebrating friendship, sunshine, and new beginnings.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="donate" style="padding:2rem; text-align:center;">
+  <h2 class="section-heading">Support Our Mission</h2>
+  <p class="section-subtitle">Your generosity helps us create magical, inclusive experiences for children.</p>
+
+  <!-- Placeholder for Donorbox or donation link -->
+  <div style="margin-top:2rem;">
+    <p style="color:#6b7280;">Donation form coming soon.</p>
+  </div>
+</section>
+<section id="contact" style="padding:2rem; text-align:center;">
+  <h2 class="section-heading">Contact Us</h2>
+  <p class="section-subtitle">We’d love to hear from you.</p>
+
+  <form style="max-width:500px; margin:auto; text-align:left; background:white; padding:2rem; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <label>Name</label>
+    <input type="text" style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+
+    <label>Email</label>
+    <input type="email" style="width:100%; padding:0.7rem; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;">
+
+    <label>Message</label>
+    <textarea style="width:100%; padding:0.7rem; height:120px; margin-bottom:1rem; border-radius:8px; border:1px solid #ccc;"></textarea>
+
+    <button type="submit" style="background:var(--primary); color:white; padding:0.8rem 1.5rem; border:none; border-radius:8px; font-size:1rem; cursor:pointer;">
+      Send Message
+    </button>
+  </form>
+</section>
+<footer>
+  <img src="YOUR_LOGO_FILENAME_HERE" 
+       alt="Mini Socialites Logo" 
+       style="height:60px; width:auto; margin-bottom:10px;">
+
+  <p style="color:#6b7280; margin-top:1rem;">
+    © 2024 Mini Socialites — Making a Dream Come True
+  </p>
+</footer>
+
+</body>
+</html>
